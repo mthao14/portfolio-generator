@@ -19,8 +19,8 @@ const promptUser = () => {
       type: 'input',
       name: 'githut',
       message: 'Enter your Github Username (Required)',
-      validate: GithubInput => {
-        if (GithubInput) {
+      validate: githubInput => {
+        if (githubInput) {
           return true;
         } else {
           console.log('Please enter your Github Username!');
@@ -65,8 +65,8 @@ Add a New Project
       type: 'input',
       name: 'name',
       message: 'What is the name of your project? (Required)',
-      validate: ProjectInput => {
-        if (ProjectInput) {
+      validate: projectInput => {
+        if (projectInput) {
           return true;
         } else {
           console.log('Please enter the name of your project!');
@@ -78,8 +78,8 @@ Add a New Project
       type: 'input',
       name: 'description',
       message: 'Provide a description of the project (Required)',
-      validate: DescriptionInput => {
-        if (DescriptionInput) {
+      validate: descriptionInput => {
+        if (descriptionInput) {
           return true;
         } else {
           console.log('Please enter description of the project!');
@@ -97,8 +97,8 @@ Add a New Project
       type: 'input',
       name: 'link',
       message: 'Enter the Github link to your project. (Required)',
-      validate: LinkInput => {
-        if (LinkInput) {
+      validate: linkInput => {
+        if (linkInput) {
           return true;
         } else {
           console.log('Please enter Github link to your project!');

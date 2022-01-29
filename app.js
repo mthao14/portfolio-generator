@@ -5,12 +5,28 @@ const promptUser = () => {
     {
       type: 'input',
       name: 'name',
-      message: 'What is your name?'
+      message: 'What is your name? (Required)',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter your name!');
+          return false;
+        }
+      }
     },
     {
       type: 'input',
       name: 'githut',
-      message: 'Enter your Github Username'
+      message: 'Enter your Github Username (Required)',
+      validate: GithubInput => {
+        if (GithubInput) {
+          return true;
+        } else {
+          console.log('Please enter your Github Username!');
+          return false;
+        }
+      }
     }, 
     {
       type: 'input',
@@ -35,12 +51,28 @@ Add a New Project
     {
       type: 'input',
       name: 'name',
-      message: 'What is the name of your project?'
+      message: 'What is the name of your project? (Required)',
+      validate: ProjectInput => {
+        if (ProjectInput) {
+          return true;
+        } else {
+          console.log('Please enter the name of your project!');
+          return false;
+        }
+      }
     },
     {
       type: 'input',
       name: 'description',
-      message: 'Provide a description of the project (Required)'
+      message: 'Provide a description of the project (Required)',
+      validate: DescriptionInput => {
+        if (DescriptionInput) {
+          return true;
+        } else {
+          console.log('Please enter description of the project!');
+          return false;
+        }
+      }
     },
     {
       type: 'checkbox',
@@ -51,7 +83,15 @@ Add a New Project
     {
       type: 'input',
       name: 'link',
-      message: 'Enter the Github link to your project. (Required)'
+      message: 'Enter the Github link to your project. (Required)',
+      validate: LinkInput => {
+        if (LinkInput) {
+          return true;
+        } else {
+          console.log('Please enter Github link to your project!');
+          return false;
+        }
+      }
     },
     {
       type: 'confirm',

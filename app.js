@@ -1,6 +1,5 @@
+const { writeFile, copyFile } = require('./utils/generate-site.js');
 const inquirer = require('inquirer');
-// require statement is a built-in function that allows the app.js file to access the fs module's functions
-const fs = require('fs'); 
 const generatePage = require('./src/page-template');
 
 const promptUser = () => {
@@ -20,7 +19,7 @@ const promptUser = () => {
     },
     {
       type: 'input',
-      name: 'githut',
+      name: 'github',
       message: 'Enter your Github Username (Required)',
       validate: githubInput => {
         if (githubInput) {
@@ -135,13 +134,18 @@ Add a New Project
 promptUser()
   .then(promptProject)
   .then(portfolioData => {
-    console.log(portfolioData);
-    const pageHTML = generatePage(portfolioData);
-
-    fs.writeFile('./index.html', pageHTML, err => {
-    if (err) throw new Error(err);
-
-    console.log('Page created! Check out index.html in this directory to see it!');
-    });
+    return generatePage(portfolioData);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
+  .catch(err => {
+    console.log(err);
   });
-  
